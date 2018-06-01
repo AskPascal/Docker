@@ -37,7 +37,8 @@ RUN \
 
 # Install debian packages for Seurat
 RUN apt-get update --yes && apt-get install --no-install-recommends --yes \
-  default-jre-headless
+  default-jre-headless \
+  libpng-dev
 
 # Install Seurat
 # Install velocyto
