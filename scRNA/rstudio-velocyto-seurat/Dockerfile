@@ -41,6 +41,9 @@ RUN apt-get update --yes && apt-get install --no-install-recommends --yes \
   libpng-dev
 
 # Install Seurat
-# Install velocyto
 RUN \
     R -e 'install.packages("Seurat", repos="https://ftp.acc.umu.se/mirror/CRAN/")'
+
+# Update rmarkdown and rprojroot
+RUN \
+    R -e 'install.packages(c("rmarkdown","rprojroot"), repos="https://ftp.acc.umu.se/mirror/CRAN/")'
