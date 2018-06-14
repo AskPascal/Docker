@@ -28,4 +28,4 @@ RUN \
 RUN \
   R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("GEOquery"), suppressAutoUpdate=TRUE, ask=FALSE, suppressUpdates=TRUE)'
 RUN \
-  R -e 'install.packages(c("data.table"), repos="https://ftp.acc.umu.se/mirror/CRAN/")'
+  R -e 'install.packages(c("data.table","zoo"), repos="https://ftp.acc.umu.se/mirror/CRAN/")'
