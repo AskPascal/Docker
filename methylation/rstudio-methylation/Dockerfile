@@ -25,8 +25,8 @@ RUN apt-get update --yes && apt-get install --no-install-recommends --yes \
 
 # Install basic R dependencies packages
 RUN \
-  R -e 'install.packages(c("devtools", "Rcpp","RcppArmadillo","knitr","rmarkdown","dplyr"), repos="https://ftp.acc.umu.se/mirror/CRAN/")'
+  R -e 'install.packages(c("devtools", "Rcpp","RcppArmadillo","knitr","rmarkdown","dplyr","WGCNA","RPMM"), repos="https://ftp.acc.umu.se/mirror/CRAN/")'
 
 # Install minfi
 RUN \
-    R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("minfi"),suppressAutoUpdate=TRUE,ask=FALSE,suppressUpdates=TRUE)'
+    R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("minfi","impute","GO.db"),suppressAutoUpdate=TRUE,ask=FALSE,suppressUpdates=TRUE)'
