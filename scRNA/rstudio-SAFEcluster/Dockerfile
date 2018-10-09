@@ -26,7 +26,8 @@ RUN apt-get update --yes && apt-get install --no-install-recommends --yes \
 # Install debian packages for Seurat
 RUN apt-get update --yes && apt-get install --no-install-recommends --yes \
   default-jre-headless \
-  libpng-dev
+  libpng-dev \
+  libgit2-dev
 
 # Install Seurat
 RUN \
@@ -35,35 +36,6 @@ RUN \
 # Update rmarkdown and rprojroot
 RUN \
     R -e 'install.packages(c("rmarkdown","rprojroot"), repos="https://ftp.acc.umu.se/mirror/CRAN/")'
-
-# Install basic packages
-RUN \
-    R -e 'install.packages(c("knitr","rmarkdown","dplyr"), repos="https://ftp.acc.umu.se/mirror/CRAN/")'
-
-# More dependencies
-RUN apt-get update --yes && apt-get install --no-install-recommends --yes \
-  libudunits2-dev
-
-# Install clustree
-RUN \
-    R -e 'install.packages(c("clustree"), repos="https://ftp.acc.umu.se/mirror/CRAN/")'
-
-# Install MAST
-RUN \
-    R -e 'source("https://bioconductor.org/biocLite.R"); biocLite(c("MAST"), suppressAutoUpdate=TRUE, ask=FALSE, suppressUpdates=TRUE)'
-
-# install UMAP
-# Install debian packages for Seurat
-RUN apt-get update --yes && apt-get install --no-install-recommends --yes \
-    python-pip \
-    python-wheel \
-    libpython2.7
-
-RUN su rstudio -c 'pip install umap-learn'
-
-# Install debian packages
-RUN apt-get update --yes && apt-get install --no-install-recommends --yes \
-  libgit2-dev
 
 # Install basic packages
 RUN \
